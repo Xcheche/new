@@ -1,0 +1,9 @@
+
+    <p>This is just a test</p>
+    {% if item_list %}
+{% for item in item_list %}
+<ul>
+<a href="{% url 'food:detail' item.id %}">{{ item.item_name }}</a>
+</ul>
+{% endfor %}
+    {% endif %}
