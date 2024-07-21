@@ -1,9 +1,43 @@
+{% extends 'food/base.html' %}
+<!DOCTYPE html>
+{% load static %}
 
-    <p>This is just a test</p>
-    {% if item_list %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+
+    <link rel="stylesheet" href="{% static 'food/style.css' %}">
+  
+</head>
+
+<body>
+    
+
+  
 {% for item in item_list %}
-<ul>
-<a href="{% url 'food:detail' item.id %}">{{ item.item_name }}</a>
-</ul>
+<!-- <p>{{ item.item_name }}</p> -->
+
+<div class="row">
+    <div class="col-md-3 ofset-md-2 d-flex justify-content-center">
+        <img class="card" height="150px"  width="150px"  src="{{ item.item_image }}" alt="">
+
+    </div>
+
+    <div class="col-md-4 ">
+<h3>{{ item.item_name }}</h3>
+<h5>{{ item.item_desc }}</h5>
+<h6>{{ item.item_price }}</h6>
+    </div>
+    <div class="col-md-2">
+<a href="{% url 'food:detail' item.pk %}" class="btn btn-success">Details</a>
+    </div>
+</div>
 {% endfor %}
-    {% endif %}
+ 
+</body>
+</html>
+
+{% endblock %}
