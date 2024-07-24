@@ -6,13 +6,16 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('food', '0003_item_item_image'),
+        ("food", "0003_item_item_image"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='item',
-            name='item_image',
-            field=models.CharField(default='https://www.google.com/imgres?q=pizza&imgurl=https%3A%2F%2Fwww.allrecipes.com%2Fthmb%2F0xH8n2D4cC97t7mcC7eT2SDZ0aE%3D%2F1500x0%2Ffilters%3Ano_upscale()%3Amax_bytes(150000)%3Astrip_icc()%2F6776_Pizza-Dough_ddmfs_2x1_1725-fdaa76496da045b3bdaadcec6d4c5398.jpg&imgrefurl=https%3A%2F%2Fwww.allrecipes.com%2Frecipe%2F6776%2Fpizza-dough-i%2F&docid=filrC_GppyVCrM&tbnid=94tQ5pOoegtPzM&vet=12ahUKEwi3nfLb36WHAxVJT0EAHY_pCpIQM3oECF0QAA..i&w=1500&h=750&hcb=2&ved=2ahUKEwi3nfLb36WHAxVJT0EAHY_pCpIQM3oECF0QAA', max_length=500),
+            model_name="item",
+            name="item_image",
+            field=models.CharField(
+                default="https://www.google.com/imgres?q=pizza&imgurl=https%3A%2F%2Fwww.allrecipes.com%2Fthmb%2F0xH8n2D4cC97t7mcC7eT2SDZ0aE%3D%2F1500x0%2Ffilters%3Ano_upscale()%3Amax_bytes(150000)%3Astrip_icc()%2F6776_Pizza-Dough_ddmfs_2x1_1725-fdaa76496da045b3bdaadcec6d4c5398.jpg&imgrefurl=https%3A%2F%2Fwww.allrecipes.com%2Frecipe%2F6776%2Fpizza-dough-i%2F&docid=filrC_GppyVCrM&tbnid=94tQ5pOoegtPzM&vet=12ahUKEwi3nfLb36WHAxVJT0EAHY_pCpIQM3oECF0QAA..i&w=1500&h=750&hcb=2&ved=2ahUKEwi3nfLb36WHAxVJT0EAHY_pCpIQM3oECF0QAA",
+                max_length=500,
+            ),
         ),
     ]
