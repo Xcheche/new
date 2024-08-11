@@ -17,7 +17,7 @@ from django.views.generic import ListView, DetailView # CBV ListView
 #     return render(request, "food/index.html", context) replaced with CBV Below
 
 
-class IndexClassView(ListView, LoginRequiredMixin): # inheritance ListView and LoginRequiredMixin
+class IndexClassView(LoginRequiredMixin, ListView): # inheritance ListView and LoginRequiredMixin
     model = Item  # model
     template_name = "food/index.html" #template
     context_object_name = "item_list" #context variable
@@ -28,9 +28,10 @@ class IndexClassView(ListView, LoginRequiredMixin): # inheritance ListView and L
 #     context = {"item": item}
 #     return render(request, "food/detail.html", context)
 
-class FoodDetail(DetailView):
+class FoodDetail(LoginRequiredMixin, DetailView):
     model = Item
     template_name = "food/detail.html"
+    context_object_name = "item"
 
 @login_required
 def create_item(request):
