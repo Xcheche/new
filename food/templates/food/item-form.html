@@ -1,18 +1,81 @@
 {% extends 'food/base.html' %}
 
 {% block content %}
-<div class="form-group d-flex justify-content-center">
-    <form action="" method="post">
-    {% csrf_token %}
-{% for field in form %}
-{{ field }}
-<p>{{ field }}
-{{ field.errors }}
-</p>
-{% endfor %}
-<button type="submit"   class="btn btn-success">Save</button>
-</form>
+<style>
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 50%;
+    color: red;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.form-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-group button:hover {
+    background-color: #45a049;
+}
+
+.form-group button:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+}
+
+</style>
+<div class="form-group d-flex justify-content-center col-md-6 offset-md-3">
+    <h1>Add Items</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
 </div>
-
-
 {% endblock %}

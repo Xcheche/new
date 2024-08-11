@@ -22,13 +22,13 @@
 
 <div class="row">
     <div class="col-md-3 ofset-md-2 d-flex justify-content-center">
-        <img class="card" height="150px"  width="150px"  src="{{ item.item_image }}" alt="">
+        <img class="card p-2 mt-2" height="100px"  width="150px"  src="{{ item.item_image.url }}" alt="">
 
     </div>
 
     <div class="col-md-4 ">
-<h3>{{ item.item_name }}</h3>
-<h5>{{ item.item_desc }}</h5>
+<h3>{{ item.item_name|capfirst }}</h3>
+<h5>{{ item.item_desc|capfirst }}</h5>
 <h6>{{ item.item_price }}</h6>
     </div>
     <div class="col-md-2">
