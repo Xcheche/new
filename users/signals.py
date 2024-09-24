@@ -19,10 +19,10 @@ def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
 
+
 # This decorator registers the 'save_profile' function as a receiver for the 'post_save' signal
 # sent by the User model. This means the 'save_profile' function will be called every time a User is saved.
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
     # Save the associated Profile instance whenever the User instance is saved.
     instance.profile.save()
-

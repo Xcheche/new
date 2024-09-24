@@ -1,43 +1,44 @@
 {% extends 'food/base.html' %}
 <!DOCTYPE html>
-{% load static %}
-
-{% block content %}
+{% load static %} {% block content %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="{% static 'food/style.css' %}">
-  
-</head>
+    <link rel="stylesheet" href="{% static 'food/style.css' %}" />
+  </head>
 
-<body>
-    
+  <body>
+    <!--Messages for alert register Auth-->
 
-  
-{% for item in item_list %}
-<!-- <p>{{ item.item_name }}</p> -->
+    {% for item in item_list %}
+    <!-- <p>{{ item.item_name }}</p> -->
 
-<div class="row">
-    <div class="col-md-3 ofset-md-2 d-flex justify-content-center">
-        <img class="card p-2 mt-2" height="100px"  width="150px"  src="{{ item.item_image.url }}" alt="">
+    <div class="row">
+      <div class="col-md-3 ofset-md-2 d-flex justify-content-center">
+        <img
+          class="card p-2 mt-2"
+          height="100px"
+          width="150px"
+          src="{{ item.item_image.url }}"
+          alt=""
+        />
+      </div>
 
+      <div class="col-md-4">
+        <h3>{{ item.item_name|capfirst }}</h3>
+        <h5>{{ item.item_desc|capfirst }}</h5>
+        <h6>{{ item.item_price }}</h6>
+      </div>
+      <div class="col-md-2">
+        <a href="{% url 'food:detail' item.pk %}" class="btn btn-success"
+          ><i class="fa-solid fa-eye my-icon"></i> Details</a
+        >
+      </div>
     </div>
-
-    <div class="col-md-4 ">
-<h3>{{ item.item_name|capfirst }}</h3>
-<h5>{{ item.item_desc|capfirst }}</h5>
-<h6>{{ item.item_price }}</h6>
-    </div>
-    <div class="col-md-2">
-<a href="{% url 'food:detail' item.pk %}" class="btn btn-success">Details</a>
-    </div>
-</div>
-{% endfor %}
- 
-</body>
+    {% endfor %}
+  </body>
 </html>
 
 {% endblock %}

@@ -1,6 +1,7 @@
 from urllib import request
 from django.shortcuts import get_object_or_404, render, redirect
-#from django.contrib.auth.forms import
+
+# from django.contrib.auth.forms import
 #  UserCreationForm using register form from from.py but inheriting usercreationform
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -18,7 +19,8 @@ def register(request):
             user = form.save()
             username = form.cleaned_data.get("username")
             messages.success(
-                request, f" successfully created a new account. Login Below❤️ {username}!"
+                request,
+                f" successfully created a new account. Login Below❤️ {username}!",
             )
             return redirect("users:login")
         else:
@@ -30,12 +32,9 @@ def register(request):
 
     return render(request, "users/register.html", {"form": form})
 
+
 @login_required
 def profilepage(request):
     user = request.user
-    context = {
-        "user": user
-    }
-    return render(request, "users/profile.html",context)
-
-
+    context = {"user": user}
+    return render(request, "users/profile.html", context)

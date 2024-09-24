@@ -12,8 +12,11 @@
 <h1>{{ item.item_name|capfirst }}</h1>
 <h2>{{ item.item_desc|capfirst }}</h2>
 <h3>{{ item.item_price }}</h3>
-<h3>Username: {{ item.user_name|capfirst }}</h3>
-<a href="{% url 'food:delete_item' item.pk %}">Delete</a>
+<hr>
+<h3>{{ item.user_name|capfirst }}</h3>
+<hr>
+<a class="btn btn-danger"   href="{% url 'food:delete_item' item.pk %}">Delete</a >&nbsp&nbsp 
+<a href="{% url 'food:update' item.pk %}"><input type="submit" value="Update" class="btn btn-primary"></a>
         </div>
     </div>
 </div>

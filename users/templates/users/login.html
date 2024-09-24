@@ -1,36 +1,41 @@
 {% extends 'food/base.html' %}
 
 {% block content %}
-
-<div class="container bg-dark text-white d-flex justify-content-center "style="width: 50%;height: 100%;border-radius: 10px;">
+<div class="container">
     <div class="row">
-        
- <div class="col-md-6 0ffset-md-3">
-     <form action="" method="post" class="form-group mt-5">
-    {% csrf_token %}
-     {% for field in form %}
-    {{ field.label }}
-   <p> {{ field }}</p>
-    {{ field.errors }}
-
-    {% endfor %}
-<small>Don't have an account? <a href="{% url 'users:register' %}">Register</a></small><br>
-    <button type="submit" class="btn btn-success mt-3 mb-3">Login</button>
-   
-</form>
-
- </div>
-
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i class="fa-solid fa-sign-in my-icon"></i>  Login
+<div class="card-body">
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+      <p>      {{ field.name }}</p>
+      <p>{{ field.errors }}</p>
+            <p>{{ field }}</p>
+        </div>
+        {% endfor %}
+        <small>Dont have an account? <a href="{% url 'users:register' %}"><i class="fa-solid fa-user-plus my-icon"></i> Register</a></small><br>
+             
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-
-  
 </div>
 
-
-
-
-
-
+<script>
+  // Optional: Add tooltips using JavaScript (if desired)
+  $(document).ready(function() {
+    $('[name="username"]').parent().prepend('<i class="fas fa-user" aria-label="Username"></i> ');
+    $('[name="password"]').parent().prepend('<i class="fas fa-lock" aria-label="Password"></i> ');
+  });
+</script>
 {% endblock %}
+
